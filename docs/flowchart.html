@@ -1,0 +1,130 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>
+:root{--abyss:#001A21;--panel:#022C37;--panel2:#03384560;--line:#0E4B5A;--ice:#E6FBFF;--dim:#7FA3AD;--cyan:#00F5FF;--blue:#00BBF0;--pink:#FF3D71;--yt:#FF4D4D;--li:#3B9BFF}
+*{box-sizing:border-box;margin:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:radial-gradient(1200px 700px at 50% 45%,#023341 0%,#001A21 70%);font-family:'Inter Tight',sans-serif;color:var(--ice)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#0E4B5A33 1px,transparent 1px),linear-gradient(90deg,#0E4B5A33 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+h1{position:absolute;left:80px;top:56px;font-size:58px;font-weight:900;letter-spacing:-.03em}
+h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 24px #FF3D7166}
+.sub{position:absolute;left:82px;top:132px;font-size:24px;color:var(--dim);font-weight:500}
+.box{position:absolute;background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:22px 26px;box-shadow:0 20px 50px #0007}
+.box h2{font-size:26px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.box h2 .tag{font:600 13px 'JetBrains Mono',monospace;color:var(--abyss);background:var(--cyan);border-radius:6px;padding:3px 8px;letter-spacing:.02em}
+.box p,.box li{font-size:18px;line-height:1.45;color:#B9DDE5}
+.box ul{padding-left:0;list-style:none;margin-top:10px}
+.box li{padding-left:22px;position:relative;margin:5px 0}
+.box li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:2px;background:var(--cyan)}
+code{font:500 16px 'JetBrains Mono',monospace;color:var(--cyan)}
+.worker{border-color:#00F5FF88;box-shadow:0 0 0 1px #00F5FF22,0 0 80px #00BBF033,0 30px 60px #0008;background:linear-gradient(180deg,#033B48,#022832)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{font:600 15px 'Inter Tight';padding:9px 13px;border-radius:12px;background:#011F27;border:1px solid var(--line);color:var(--ice)}
+.chip b{color:var(--cyan);font-weight:700}
+.ig{border-color:#FF3D7199}.ig h2 .dot{background:linear-gradient(135deg,#FFB13D,#FF3D71,#B23DFF)}
+.yt{border-color:#FF4D4D99}.yt h2 .dot{background:var(--yt)}
+.li{border-color:#3B9BFF99}.li h2 .dot{background:var(--li)}
+.dot{width:16px;height:16px;border-radius:5px;display:inline-block}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:12px}
+.step{font:600 15px 'Inter Tight';padding:7px 11px;border-radius:9px;background:#3D0F1F;border:1px solid #FF3D7166;color:#FFD2DE}
+.arrowtxt{color:var(--pink);font-weight:800}
+svg{position:absolute;inset:0;pointer-events:none}
+.lbl{font:600 15px 'JetBrains Mono',monospace;fill:var(--dim)}
+.foot{position:absolute;left:80px;bottom:44px;font-size:18px;color:var(--dim)}
+.foot b{color:var(--ice)}
+</style></head><body>
+<div class="grid"></div>
+<h1>Personal Automation <em>·</em> 3 platforms, 1 Worker</h1>
+<div class="sub">How I post and reply on Instagram, YouTube and LinkedIn without opening the apps</div>
+
+<!-- you -->
+<div class="box" style="left:80px;top:250px;width:390px">
+  <h2>👤 Me</h2>
+  <p style="margin-top:8px">One command line tool</p>
+  <ul>
+    <li><code>post-add</code> schedule reels &amp; posts</li>
+    <li><code>auto-add</code> comment → DM automations</li>
+    <li><code>yt-post-add</code> schedule YouTube</li>
+    <li><code>li-post-add</code> schedule LinkedIn</li>
+    <li><code>stats</code> · <code>calendar</code> · <code>leads</code></li>
+  </ul>
+</div>
+<div class="box" style="left:80px;top:690px;width:390px">
+  <h2>📊 Dashboard + 📧 alerts</h2>
+  <ul>
+    <li>Content calendar across all 3</li>
+    <li>Leads, link opens, post stats</li>
+    <li>Email on failures + daily summary</li>
+  </ul>
+</div>
+
+<!-- worker -->
+<div class="box worker" style="left:600px;top:250px;width:640px;height:590px">
+  <h2>☁️ Cloudflare Worker <span class="tag">FREE TIER</span></h2>
+  <p style="margin-top:8px">Runs 24/7. No server, no laptop needed.</p>
+  <div class="chips">
+    <span class="chip"><b>Cron</b> every minute</span>
+    <span class="chip"><b>Webhooks</b> signed, stored, retried</span>
+    <span class="chip"><b>D1</b> database</span>
+    <span class="chip"><b>R2</b> videos, covers, PDFs</span>
+    <span class="chip"><b>Queue</b> rate limits</span>
+    <span class="chip"><b>Flipbook</b> PDF links</span>
+    <span class="chip"><b>Click</b> tracking</span>
+  </div>
+  <ul style="margin-top:22px">
+    <li>Publishes at the exact time, in each platform's best format</li>
+    <li>Reels checked and encoded to Instagram's top spec</li>
+    <li>Every comment and DM saved before it's processed</li>
+    <li>Tokens renew themselves, quotas are tracked</li>
+  </ul>
+  <div style="margin-top:22px;padding-top:18px;border-top:1px solid #0E4B5A;display:flex;gap:10px;flex-wrap:wrap">
+    <span class="chip">📅 <b>Calendar</b> all platforms</span>
+    <span class="chip">📧 <b>Resend</b> alerts + daily summary</span>
+    <span class="chip">🔒 <b>Secrets</b> in Cloudflare</span>
+  </div>
+</div>
+
+<!-- platforms -->
+<div class="box ig" style="left:1370px;top:200px;width:470px">
+  <h2><span class="dot"></span>Instagram</h2>
+  <p style="margin-top:6px">Scheduled reels, posts, stories + covers</p>
+  <div class="flow">
+    <span class="step">comment "AI"</span><span class="arrowtxt">→</span><span class="step">reply</span><span class="arrowtxt">→</span><span class="step">DM</span>
+    <span class="arrowtxt">→</span><span class="step">follow check</span><span class="arrowtxt">→</span><span class="step">link</span><span class="arrowtxt">→</span><span class="step">1h follow-up</span>
+  </div>
+</div>
+<div class="box yt" style="left:1370px;top:520px;width:470px">
+  <h2><span class="dot"></span>YouTube</h2>
+  <ul>
+    <li>Upload + schedule (YouTube publishes it)</li>
+    <li>Link on the description's first line</li>
+    <li>Views, likes, watch time</li>
+  </ul>
+</div>
+<div class="box li" style="left:1370px;top:790px;width:470px">
+  <h2><span class="dot"></span>LinkedIn</h2>
+  <ul>
+    <li>Scheduled text, image, video, PDF carousel posts</li>
+  </ul>
+</div>
+
+<svg viewBox="0 0 1920 1080">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#00F5FF"/></marker>
+    <marker id="p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FF3D71"/></marker>
+  </defs>
+  <!-- me -> worker -->
+  <path d="M470 380 C 530 380, 540 380, 598 380" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <text x="482" y="366" class="lbl">admin API</text>
+  <!-- worker -> dashboard -->
+  <path d="M600 780 C 540 780, 530 780, 472 780" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <!-- worker -> platforms -->
+  <path d="M1240 330 C 1300 330, 1310 300, 1368 300" stroke="#FF3D71" stroke-width="3" fill="none" marker-end="url(#p)"/>
+  <path d="M1368 360 C 1310 360, 1300 400, 1242 400" stroke="#FF3D71" stroke-width="3" stroke-dasharray="7 7" fill="none" marker-end="url(#p)"/>
+  <text x="1252" y="440" class="lbl" style="fill:#FF9DB6">webhooks</text>
+  <path d="M1240 600 C 1300 600, 1310 610, 1368 610" stroke="#FF4D4D" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <path d="M1240 800 C 1300 800, 1310 850, 1368 850" stroke="#3B9BFF" stroke-width="3" fill="none" marker-end="url(#a)"/>
+</svg>
+
+<div class="foot">Open source · <b>Cloudflare Workers + D1 + R2</b> · Instagram Graph API · YouTube Data API · LinkedIn Posts API · built with Claude</div>
+</body></html>

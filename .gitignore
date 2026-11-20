@@ -1,0 +1,7 @@
+.env
+.dev.vars
+worker/wrangler.toml
+worker/.wrangler/
+node_modules/
+__pycache__/
+*.log

@@ -1,0 +1,39 @@
+# Copy to wrangler.toml and fill in the <...> values (see README).
+name = "personal-automation"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "personal-automation"
+database_id = "<your D1 database id>"
+
+# uploaded media for scheduled posts (deleted after publishing) + PDFs shared in DMs (kept)
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "personal-automation-media"
+
+# every minute: webhook retries, follow-ups, scheduled posts (IG/YT/LinkedIn), send queue, YT comment checks, alerts
+# daily 03:00 UTC: token refresh, cleanup, daily summary email
+# every 6h: post analytics
+[triggers]
+crons = ["* * * * *", "0 3 * * *", "30 */6 * * *"]
+
+[observability]
+enabled = true
+
+[vars]
+TZ = "UTC"                                   # timezone for the dashboard and emails, e.g. "Asia/Kolkata"
+PUBLIC_URL = "https://personal-automation.<your-subdomain>.workers.dev"
+IG_APP_ID = "<Instagram app id>"             # Meta app > Instagram > API setup with Instagram login
+DM_PER_HOUR = "190"                          # Meta allows ~200 automated DMs/hour per account
+REPLY_PER_HOUR = "100"
+OWNER_NAME = "<your name>"                   # shown on /privacy and /data-deletion
+OWNER_HANDLE = "<your instagram username>"
+POLICY_DATE = "<date you published the policy>"
+
+# Secrets (npx wrangler secret put NAME):
+#   required: IG_APP_SECRET, VERIFY_TOKEN, ADMIN_KEY, VIEW_PASSWORD
+#   email alerts (optional): RESEND_API_KEY, ALERT_EMAIL, ALERT_FROM
+#   YouTube (optional): YT_CLIENT_ID, YT_CLIENT_SECRET
+#   LinkedIn (optional): LI_CLIENT_ID, LI_CLIENT_SECRET
