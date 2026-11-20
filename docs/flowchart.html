@@ -1,123 +1,152 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=block" rel="stylesheet">
 <style>
-:root{--abyss:#001A21;--panel:#022C37;--line:#0E4B5A;--ice:#E6FBFF;--dim:#7FA3AD;--cyan:#00F5FF;--blue:#00BBF0;--pink:#FF3D71}
+:root{--bg:#001A21;--line:#0F4655;--ice:#E6FBFF;--dim:#86A9B2;--txt:#B9D9E0;--cyan:#00F5FF;--blue:#00BBF0;--pink:#FF3D71}
 *{box-sizing:border-box;margin:0}
-html,body{width:1920px;height:1080px;overflow:hidden;background:radial-gradient(1300px 760px at 45% 50%,#023341 0%,#001A21 70%);font-family:'Inter Tight',sans-serif;color:var(--ice)}
-.grid{position:absolute;inset:0;background-image:linear-gradient(#0E4B5A33 1px,transparent 1px),linear-gradient(90deg,#0E4B5A33 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
-h1{position:absolute;left:70px;top:50px;font-size:60px;font-weight:900;letter-spacing:-.03em}
-h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 26px #FF3D7166}
-.sub{position:absolute;left:72px;top:128px;font-size:25px;color:var(--dim);font-weight:500}
-.box{position:absolute;background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:22px 24px;box-shadow:0 20px 50px #0007}
-.box h2{font-size:25px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
-.box p,.box li{font-size:17px;line-height:1.45;color:#B9DDE5}
-.box ul{list-style:none;padding:0;margin-top:10px}
-.box li{padding-left:20px;position:relative;margin:5px 0}
-.box li::before{content:"";position:absolute;left:3px;top:10px;width:7px;height:7px;border-radius:2px;background:var(--cyan)}
-code{font:500 15px 'JetBrains Mono',monospace;color:var(--cyan)}
-.chat{border-color:#FF3D7188;box-shadow:0 0 0 1px #FF3D7122,0 0 90px #FF3D7122,0 30px 60px #0008;background:linear-gradient(180deg,#05303B,#022832)}
-.chat .head{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;margin-bottom:14px}
-.chat .head .live{font:600 12px 'JetBrains Mono';color:#001A21;background:var(--pink);padding:3px 8px;border-radius:6px}
-.msg{font-size:18px;line-height:1.35;padding:12px 15px;border-radius:16px 16px 4px 16px;background:#0A4554;border:1px solid #11606F;margin:10px 0 10px 34px;color:var(--ice)}
-.msg b{color:var(--cyan);font-weight:700}
-.bot{font-size:16.5px;line-height:1.4;padding:12px 15px;border-radius:16px 16px 16px 4px;background:#3D0F1F;border:1px solid #FF3D7155;margin:14px 34px 0 0;color:#FFD9E3;display:flex;gap:10px;align-items:flex-start}
-.bot img{width:26px;height:26px;border-radius:7px;flex:none;margin-top:1px}
-.agent{border-color:#00F5FF66}
-.icons{display:flex;gap:10px;margin:4px 0 14px}
-.icons img{width:52px;height:52px;border-radius:14px;object-fit:contain;background:#fff;padding:6px}
-.icons img.full{padding:0;background:none}
-.worker{border-color:#00F5FF88;box-shadow:0 0 0 1px #00F5FF22,0 0 80px #00BBF033,0 30px 60px #0008;background:linear-gradient(180deg,#033B48,#022832)}
-.tag{font:600 12px 'JetBrains Mono',monospace;color:var(--abyss);background:var(--cyan);border-radius:6px;padding:3px 8px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chip{font:600 14.5px 'Inter Tight';padding:8px 11px;border-radius:11px;background:#011F27;border:1px solid var(--line);color:var(--ice)}
-.chip b{color:var(--cyan);font-weight:700}
-.plat h2 img{height:32px;width:auto;border-radius:8px}
-.plat.yt h2 img{height:24px;border-radius:0}
-.ig{border-color:#FF3D7199}.yt{border-color:#FF4D4D99}.li{border-color:#3B9BFF99}
-.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px}
-.step{font:600 14px 'Inter Tight';padding:6px 9px;border-radius:8px;background:#3D0F1F;border:1px solid #FF3D7166;color:#FFD2DE}
-.ar{color:var(--pink);font-weight:800}
-svg{position:absolute;inset:0;pointer-events:none}
-.box{translate:0 70px}
-.lbl{font:600 15px 'JetBrains Mono',monospace;fill:var(--dim)}
-.foot{position:absolute;left:70px;bottom:40px;font-size:18px;color:var(--dim)}
-.foot b{color:var(--ice)}
+html,body{width:1920px;height:1080px;overflow:hidden;font-family:'Inter Tight',sans-serif;color:var(--ice);
+  background:radial-gradient(900px 500px at 20% 35%,#05374566,transparent 70%),radial-gradient(900px 600px at 85% 70%,#05374555,transparent 70%),var(--bg)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#0F465577 1.2px,transparent 1.2px);background-size:34px 34px;mask-image:linear-gradient(#000,transparent 70%)}
+.card{background:linear-gradient(180deg,#053340,#022630);border:1.5px solid var(--line);border-radius:22px;box-shadow:0 24px 60px #0009}
+
+header{position:absolute;left:80px;top:52px;right:80px;display:flex;justify-content:space-between;align-items:flex-end}
+h1{font-size:64px;font-weight:900;letter-spacing:-.035em;line-height:1}
+h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 30px #FF3D7155}
+.sub{margin-top:12px;font-size:23px;color:var(--dim);font-weight:500}
+.repo{font:600 18px 'JetBrains Mono',monospace;color:var(--cyan);border:1.5px solid #00F5FF55;border-radius:12px;padding:10px 16px;background:#00F5FF0d}
+
+/* ---------- flow row ---------- */
+.flow{position:absolute;left:80px;right:80px;top:215px;height:420px;display:grid;grid-template-columns:1.2fr 0.85fr 0.85fr 1.15fr;gap:58px}
+.col{display:flex;flex-direction:column;min-height:0}
+.step{font:700 15px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.06em;margin-bottom:12px}
+.step span{color:var(--dim)}
+.col > .card{flex:1;padding:22px;display:flex;flex-direction:column}
+h3{font-size:25px;font-weight:800;letter-spacing:-.015em;line-height:1.15}
+.col p{font-size:17.5px;line-height:1.42;color:var(--txt);margin-top:9px}
+.chat{border-color:#FF3D7180;box-shadow:0 0 0 1px #FF3D7120,0 0 90px #FF3D711c,0 24px 60px #0009}
+.bubble{align-self:flex-end;max-width:94%;font-size:17.5px;line-height:1.3;font-weight:600;padding:11px 15px;border-radius:18px 18px 5px 18px;background:#0B4656;border:1px solid #13677A;margin-bottom:9px}
+.bubble b{color:var(--cyan)}
+.reply{margin-top:auto;display:flex;gap:10px;align-items:flex-start;font-size:16.5px;line-height:1.38;padding:11px 14px;border-radius:18px 18px 18px 5px;background:#3A0E1D;border:1px solid #FF3D7160;color:#FFDCE5}
+.reply img{width:28px;height:28px;border-radius:8px;flex:none}
+.logos{display:flex;gap:12px;margin-bottom:16px}
+.logos img{width:62px;height:62px;border-radius:17px;object-fit:contain}
+.logos .w{background:#fff;padding:9px}
+.cf{width:62px;height:62px;border-radius:17px;background:linear-gradient(135deg,#F6821F,#FBAD41);display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:16px}
+.free{display:inline-block;font:700 12px 'JetBrains Mono';color:var(--bg);background:var(--cyan);border-radius:6px;padding:3px 7px;vertical-align:middle}
+.ticks{list-style:none;padding:0;margin-top:auto}
+.ticks li{font-size:16.5px;color:#CDE9EF;padding:8px 0 8px 26px;position:relative;border-top:1px solid #0F465599}
+.ticks li::before{content:"✓";position:absolute;left:1px;top:7px;color:var(--cyan);font-weight:800}
+.plats{display:flex;flex-direction:column;gap:11px;flex:1}
+.plat{display:flex;align-items:center;gap:16px;padding:13px 18px}
+.plat img{width:46px;height:46px;object-fit:contain;flex:none}
+.plat img.yt{height:33px}
+.plat b{display:block;font-size:21px;font-weight:800}
+.plat span{font-size:15px;color:var(--txt)}
+.plat.ig{border-color:#FF3D7170}.plat.yt2{border-color:#FF4D4D70}.plat.li{border-color:#3B9BFF70}
+.soon{margin-top:auto;border:1.5px dashed #2B6B7B;border-radius:18px;padding:12px 16px;display:flex;align-items:center;gap:14px}
+.soon .lbl{font:700 13px 'JetBrains Mono';color:#FFB547;letter-spacing:.06em;line-height:1.3;width:70px}
+.soon .ic{display:flex;gap:14px}
+.soon figure{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12.5px;color:var(--dim);opacity:.92}
+.soon img{width:38px;height:38px;border-radius:10px}
+.soon img.round{border-radius:50%}
+.arrow{position:absolute;top:418px;height:5px;border-radius:5px;background:linear-gradient(90deg,#00BBF0,#00F5FF);box-shadow:0 0 16px #00F5FF88}
+.arrow::after{content:"";position:absolute;right:-9px;top:-7px;border-left:14px solid #00F5FF;border-top:9.5px solid transparent;border-bottom:9.5px solid transparent;filter:drop-shadow(0 0 5px #00F5FF)}
+
+/* ---------- features ---------- */
+.fhead{position:absolute;left:80px;top:668px;font:700 15px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.06em}
+.fhead span{color:var(--dim)}
+.feats{position:absolute;left:80px;right:80px;top:698px;height:310px;display:grid;grid-template-columns:1.35fr 1fr 0.9fr 1.35fr;gap:22px}
+.feat{padding:18px 20px}
+.feat h4{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;margin-bottom:8px}
+.feat h4 img{width:28px;height:28px;object-fit:contain}
+.feat h4 img.yt{height:20px}
+.feat ul{list-style:none;padding:0;columns:1}
+.feat.two ul{columns:2;column-gap:18px}
+.feat li{font-size:15.5px;line-height:1.3;color:var(--txt);padding:4px 0 4px 16px;position:relative;break-inside:avoid}
+.feat li::before{content:"";position:absolute;left:1px;top:11px;width:6px;height:6px;border-radius:2px;background:var(--cyan)}
+.feat.ig{border-color:#FF3D7155}.feat.ig li::before{background:var(--pink)}
+.feat.yt2{border-color:#FF4D4D55}.feat.yt2 li::before{background:#FF4D4D}
+.feat.li{border-color:#3B9BFF55}.feat.li li::before{background:#3B9BFF}
+.feat.all{border-color:#00F5FF55}
 </style></head><body>
-<div class="grid"></div>
-<h1>Run Instagram, YouTube &amp; LinkedIn <em>from a chat</em></h1>
-<div class="sub">Tell Claude or ChatGPT what to post. It schedules, sets up DMs and reports back.</div>
+<div class="dots"></div>
+<header>
+  <div><h1>Run your socials <em>from a chat.</em></h1>
+  <div class="sub">Tell Claude or ChatGPT what to post. It schedules, sets up DMs and reports back.</div></div>
+  <div class="repo">github.com/pradyut-das/personal-automation</div>
+</header>
 
-<div class="box chat" style="left:70px;top:210px;width:560px">
-  <div class="head">💬 You <span class="live">PLAIN ENGLISH</span></div>
-  <div class="msg">Schedule these <b>5 reels</b>, one at <b>10am</b> and one at <b>6pm</b></div>
-  <div class="msg">If anyone comments <b>"AI"</b>, DM them the workflow PDF, only if they follow me</div>
-  <div class="msg">Put the guide link on my <b>YouTube</b> video</div>
-  <div class="msg">Post this carousel on <b>LinkedIn</b> Monday 9am</div>
-  <div class="msg">How did yesterday's reel do?</div>
-  <div class="bot"><img src="icons/claude.png" alt=""><span>Done ✓ 5 reels queued Sat–Mon, AI → DM live on each. Yesterday's reel: views, leads and link opens are in your summary.</span></div>
-</div>
-
-<div class="box agent" style="left:720px;top:300px;width:330px">
-  <h2>Your AI agent</h2>
-  <div class="icons" style="margin-top:12px"><img class="full" src="icons/claude.png" alt="Claude"><img src="icons/chatgpt.png" alt="ChatGPT"><img class="full" src="icons/tool-green.png" alt=""></div>
-  <ul>
-    <li>Claude Code or Codex</li>
-    <li>Reads <code>AGENTS.md</code></li>
-    <li>Runs <code>pa.py</code> for you</li>
-    <li>Confirms before posting</li>
-  </ul>
-</div>
-
-<div class="box worker" style="left:1140px;top:250px;width:330px;height:520px">
-  <h2>☁️ Worker</h2>
-  <p style="margin-top:6px">Cloudflare, 24/7 <span class="tag">FREE</span></p>
-  <div class="chips">
-    <span class="chip"><b>Cron</b> every minute</span>
-    <span class="chip"><b>Webhooks</b> saved + retried</span>
-    <span class="chip"><b>D1</b> database</span>
-    <span class="chip"><b>R2</b> videos, PDFs</span>
-    <span class="chip"><b>Rate-limit</b> queue</span>
-    <span class="chip"><b>Flipbook</b> PDFs</span>
-    <span class="chip"><b>Click</b> tracking</span>
-    <span class="chip">📅 <b>Calendar</b></span>
-    <span class="chip">📧 <b>Alerts</b> + daily summary</span>
+<div class="flow">
+  <div class="col">
+    <div class="step">01 <span>YOU ASK</span></div>
+    <div class="card chat">
+      <div class="bubble">Schedule these <b>5 reels</b>, 10am and 6pm</div>
+      <div class="bubble">Anyone who comments <b>"AI"</b> gets the PDF in DMs</div>
+      <div class="bubble">Post this carousel on <b>LinkedIn</b> Monday</div>
+      <div class="reply"><img src="icons/claude.png" alt=""><span>Done ✓ All scheduled. I'll DM the guide and follow up an hour later.</span></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="step">02 <span>AI DOES IT</span></div>
+    <div class="card">
+      <div class="logos"><img src="icons/claude.png" alt=""><img class="w" src="icons/chatgpt.png" alt=""></div>
+      <h3>Claude Code or Codex</h3>
+      <p>Uploads files, writes captions, sets automations.</p>
+      <ul class="ticks"><li>Shows you everything first</li><li>Posts only after your yes</li></ul>
+    </div>
+  </div>
+  <div class="col">
+    <div class="step">03 <span>RUNS 24/7</span></div>
+    <div class="card">
+      <div class="cf">☁️</div>
+      <h3>Cloudflare Worker <span class="free">FREE</span></h3>
+      <p>Publishes on time, sends DMs and follow-ups.</p>
+      <ul class="ticks"><li>No server, no laptop on</li><li>Email if anything breaks</li></ul>
+    </div>
+  </div>
+  <div class="col">
+    <div class="step">04 <span>GOES LIVE</span></div>
+    <div class="plats">
+      <div class="card plat ig"><img src="icons/instagram.png" alt=""><div><b>Instagram</b><span>Reels, posts, stories, comment → DM</span></div></div>
+      <div class="card plat yt2"><img class="yt" src="icons/youtube.png" alt=""><div><b>YouTube</b><span>Uploads, links in description</span></div></div>
+      <div class="card plat li"><img src="icons/linkedin.png" alt=""><div><b>LinkedIn</b><span>Posts, videos, PDF carousels</span></div></div>
+      <div class="soon"><div class="lbl">COMING SOON</div><div class="ic">
+        <figure><img src="icons/threads.svg" alt=""><figcaption>Threads</figcaption></figure>
+        <figure><img src="icons/x.svg" alt=""><figcaption>X</figcaption></figure>
+        <figure><img src="icons/facebook.svg" alt=""><figcaption>Facebook</figcaption></figure>
+        <figure><img class="round" src="icons/pinterest.svg" alt=""><figcaption>Pinterest</figcaption></figure>
+      </div></div>
+    </div>
   </div>
 </div>
+<div class="arrow" id="a1"></div><div class="arrow" id="a2"></div><div class="arrow" id="a3"></div>
 
-<div class="box plat ig" style="left:1540px;top:200px;width:330px">
-  <h2><img src="icons/instagram.png" alt="">Instagram</h2>
-  <p style="margin-top:6px">Reels, posts, stories, covers</p>
-  <div class="flow"><span class="step">comment "AI"</span><span class="ar">→</span><span class="step">DM</span><span class="ar">→</span><span class="step">follow check</span><span class="ar">→</span><span class="step">link</span><span class="ar">→</span><span class="step">follow-up</span></div>
+<div class="fhead">EVERYTHING IT DOES <span>· ALL FROM A CHAT</span></div>
+<div class="feats">
+  <div class="card feat ig two"><h4><img src="icons/instagram.png" alt="">Instagram</h4><ul>
+    <li>Scheduled reels, posts, carousels, stories</li><li>Custom reel covers</li>
+    <li>Comment keyword → reply → DM</li><li>Follow check before the link</li>
+    <li>Tracked links</li><li>1h follow-up: "opened it?"</li>
+    <li>"How was it?" quick replies</li><li>Story reply + mention triggers</li>
+    <li>DM keywords, any-post keywords</li><li>Views, reach, saves, leads</li></ul></div>
+  <div class="card feat yt2"><h4><img class="yt" src="icons/youtube.png" alt="">YouTube</h4><ul>
+    <li>Scheduled uploads (native publish)</li><li>Link on the description's 1st line</li>
+    <li>Optional keyword comment replies</li><li>Views, likes, watch time</li><li>Daily quota guard</li></ul></div>
+  <div class="card feat li"><h4><img src="icons/linkedin.png" alt="">LinkedIn</h4><ul>
+    <li>Text posts</li><li>Single + multi-image</li><li>Video posts</li><li>PDF carousels</li><li>Sign-in expiry reminders</li></ul></div>
+  <div class="card feat all two"><h4>⚡ Everywhere</h4><ul>
+    <li>Content calendar</li><li>Read-only team dashboard</li>
+    <li>Email alerts + daily summary</li><li>Reels encoded to IG's top spec</li>
+    <li>PDF flipbook links</li><li>PDF compression</li>
+    <li>Webhooks saved + retried</li><li>Rate-limit queue</li>
+    <li>AGENTS.md for Claude / Codex</li><li>Free tier, open source</li></ul></div>
 </div>
-<div class="box plat yt" style="left:1540px;top:480px;width:330px">
-  <h2><img src="icons/youtube.png" alt="">YouTube</h2>
-  <ul><li>Scheduled uploads</li><li>Link in description</li><li>Stats</li></ul>
-</div>
-<div class="box plat li" style="left:1540px;top:720px;width:330px">
-  <h2><img src="icons/linkedin.png" alt="">LinkedIn</h2>
-  <ul><li>Text, image, video, PDF carousel</li></ul>
-</div>
-
-<svg viewBox="0 0 1920 1080">
-  <defs>
-    <marker id="c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#00F5FF"/></marker>
-    <marker id="p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FF3D71"/></marker>
-  </defs>
-  <g transform="translate(0,70)">
-  <path d="M630 390 C 670 390, 680 390, 718 390" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#c)"/>
-  <text x="636" y="374" class="lbl">asks</text>
-  <path d="M718 580 C 680 580, 670 690, 632 690" stroke="#FF3D71" stroke-width="3" stroke-dasharray="7 7" fill="none" marker-end="url(#p)"/>
-  <text x="642" y="626" class="lbl" style="fill:#FF9DB6">confirms</text>
-  <text x="642" y="646" class="lbl" style="fill:#FF9DB6">+ reports</text>
-  <path d="M1050 480 C 1095 480, 1100 480, 1138 480" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#c)"/>
-  <text x="1058" y="464" class="lbl">pa.py</text>
-  <path d="M1470 300 C 1505 300, 1508 290, 1538 290" stroke="#FF3D71" stroke-width="3" fill="none" marker-end="url(#p)"/>
-  <path d="M1538 360 C 1508 360, 1505 380, 1472 380" stroke="#FF3D71" stroke-width="3" stroke-dasharray="7 7" fill="none" marker-end="url(#p)"/>
-  <path d="M1470 560 C 1505 560, 1508 560, 1538 560" stroke="#FF4D4D" stroke-width="3" fill="none" marker-end="url(#c)"/>
-  <path d="M1470 700 C 1505 700, 1508 780, 1538 780" stroke="#3B9BFF" stroke-width="3" fill="none" marker-end="url(#c)"/>
-  </g>
-</svg>
-
-<div class="foot">Open source · <b>github.com/pradyut-das/personal-automation</b> · Cloudflare Workers + D1 + R2 · Instagram, YouTube &amp; LinkedIn APIs</div>
+<script>
+  const cols = [...document.querySelectorAll('.flow .col')];
+  ['a1','a2','a3'].forEach((id, i) => {
+    const r1 = cols[i].getBoundingClientRect(), r2 = cols[i + 1].getBoundingClientRect();
+    const el = document.getElementById(id);
+    el.style.width = (r2.left - r1.right - 22) + 'px'; el.style.left = (r1.right + 6) + 'px';
+  });
+</script>
 </body></html>
