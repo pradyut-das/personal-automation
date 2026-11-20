@@ -2,99 +2,106 @@
 <html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=block" rel="stylesheet">
 <style>
-:root{--bg:#060708;--line:#FFFFFF1C;--ice:#FFFFFF;--dim:#8E969A;--txt:#C7CDD0;--cyan:#00E5FF}
+:root{--bg:#060708;--line:#FFFFFF1C;--ice:#FFFFFF;--dim:#8E969A;--txt:#D3D8DA;--cyan:#00E5FF}
 *{box-sizing:border-box;margin:0}
 html,body{width:1920px;height:1080px;overflow:hidden;font-family:'Inter Tight',sans-serif;color:var(--ice);
-  background:radial-gradient(1400px 700px at 50% -10%,#2A2F33 0%,#111416 38%,transparent 70%),radial-gradient(900px 600px at 75% 80%,#00E5FF14,transparent 70%),var(--bg)}
+  background:radial-gradient(1400px 700px at 50% -10%,#2A2F33 0%,#111416 38%,transparent 70%),radial-gradient(1200px 500px at 50% 115%,#00E5FF12,transparent 70%),var(--bg)}
 .pattern{position:absolute;inset:0;
   background-image:radial-gradient(#FFFFFF2A 1.1px,transparent 1.2px),repeating-linear-gradient(135deg,#FFFFFF07 0 1px,transparent 1px 22px);
   background-size:30px 30px,auto;mask-image:radial-gradient(ellipse 85% 80% at 50% 45%,#000 35%,transparent 85%)}
 .pattern::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 55%,#000000B0 100%)}
-.card{background:linear-gradient(180deg,#17191B 0%,#0D0E0F 100%);border:1px solid var(--line);border-radius:30px;
+.card{background:linear-gradient(180deg,#17191B 0%,#0D0E0F 100%);border:1px solid var(--line);border-radius:26px;
   box-shadow:inset 0 1px 0 #FFFFFF1A,0 40px 80px -12px #000000F0,0 10px 24px #000000A0}
 
-header{position:absolute;left:0;right:0;top:86px;text-align:center}
-h1{font-size:84px;font-weight:900;letter-spacing:-.04em;line-height:1.02}
+header{position:absolute;left:80px;right:80px;top:64px;display:flex;justify-content:space-between;align-items:flex-end}
+h1{font-size:76px;font-weight:900;letter-spacing:-.04em;line-height:1}
 h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 40px #00E5FF55}
+.sub{margin-top:16px;font-size:25px;color:var(--dim);font-weight:500}
+.sub b{color:var(--ice);font-weight:700}
+.ai{display:flex;align-items:center;gap:12px}
+.ai img{width:58px;height:58px;border-radius:16px;object-fit:contain;box-shadow:0 10px 22px #000000C0}
+.ai img.w{background:#fff;padding:9px}
 
-.wrap{position:absolute;left:130px;right:130px;top:300px;height:560px;display:grid;grid-template-columns:1fr 120px 1.15fr;align-items:stretch}
-.label{font:700 18px 'JetBrains Mono',monospace;letter-spacing:.12em;margin-bottom:16px}
-.col{display:flex;flex-direction:column}
-.col > .card{flex:1;padding:36px 40px}
+.grid{position:absolute;left:80px;right:80px;top:250px;bottom:126px;display:grid;grid-template-columns:1.12fr 1fr 1fr;grid-template-rows:auto 1fr;gap:22px}
+.ig{grid-row:1 / span 2}
+.allc{grid-column:2 / span 2}
+.allc ul{columns:2;column-gap:30px}
+.allc li{break-inside:avoid}
+.card{padding:30px 30px 26px;display:flex;flex-direction:column}
+.card h2{display:flex;align-items:center;gap:14px;font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;padding-bottom:16px;border-bottom:1px solid #FFFFFF14}
+.card h2 img{width:42px;height:42px;object-fit:contain}
+.card h2 img.yt{height:30px}
+.card h2 .all{width:42px;height:42px;border-radius:12px;background:#00E5FF1A;border:1px solid #00E5FF66;display:flex;align-items:center;justify-content:center;color:var(--cyan);font:800 22px 'Inter Tight'}
+ul{list-style:none;padding:0}
+li{font-size:23px;line-height:1.3;color:var(--txt);padding:8px 0 8px 28px;position:relative}
+li::before{content:"";position:absolute;left:2px;top:17px;width:9px;height:9px;border-radius:3px;background:var(--cyan);box-shadow:0 0 8px #00E5FF99}
+.ig{border-color:#00E5FF59;box-shadow:inset 0 1px 0 #FFFFFF1A,0 0 0 1px #00E5FF1A,0 0 100px #00E5FF14,0 40px 80px -12px #000000F0}
 
-/* before */
-.before .label{color:var(--dim)}
-.before .card{background:linear-gradient(180deg,#121314,#0B0B0C);border-color:#FFFFFF12}
-.chores{list-style:none;padding:0}
-.chores li{font-size:25px;line-height:1.3;color:#7C8488;padding:13px 0 13px 44px;position:relative;border-bottom:1px solid #FFFFFF0D;
-  text-decoration:line-through;text-decoration-color:#FFFFFF55;text-decoration-thickness:2px}
-.chores li:last-child{border-bottom:0}
-.chores li::before{content:"";position:absolute;left:2px;top:19px;width:22px;height:22px;border-radius:6px;border:2px solid #FFFFFF33}
-.every{margin-top:18px;font-size:22px;color:#9AA2A6;font-weight:600}
-
-/* middle */
-.mid{display:flex;align-items:center;justify-content:center}
-.arrow{width:70px;height:5px;border-radius:5px;background:linear-gradient(90deg,#FFFFFF33,#00E5FF);box-shadow:0 0 18px #00E5FF88;position:relative}
-.arrow::after{content:"";position:absolute;right:-11px;top:-9px;border-left:17px solid #00E5FF;border-top:11.5px solid transparent;border-bottom:11.5px solid transparent;filter:drop-shadow(0 0 6px #00E5FF)}
-
-/* now */
-.now .label{color:var(--cyan)}
-.now .card{border-color:#00E5FF59;box-shadow:inset 0 1px 0 #FFFFFF1A,0 0 0 1px #00E5FF1F,0 0 120px #00E5FF1F,0 40px 80px -12px #000000F0;display:flex;flex-direction:column}
-.msg{align-self:flex-end;max-width:92%;font-size:28px;line-height:1.32;font-weight:600;padding:20px 26px;border-radius:28px 28px 8px 28px;background:#fff;color:#0A0B0C;box-shadow:0 10px 24px #00000090}
-.msg b{color:#0089A8}
-.reply{margin-top:22px;display:flex;gap:16px;align-items:flex-start;padding:18px 22px;border-radius:28px 28px 28px 8px;background:#0A1A1D;border:1px solid #00E5FF4D;max-width:92%}
-.reply img{width:40px;height:40px;border-radius:11px;flex:none}
-.sched{font:500 19px/1.6 'JetBrains Mono',monospace;color:#D7F9FF}
-.sched span{color:var(--dim)}
-.plats{margin-top:auto;display:flex;align-items:center;gap:18px;padding-top:24px;border-top:1px solid #FFFFFF14}
-.plats img{height:52px;width:auto;filter:drop-shadow(0 8px 16px #000000B0)}
-.plats .t{font-size:22px;color:var(--txt);font-weight:600;margin-left:8px}
-
-footer{position:absolute;left:0;right:0;bottom:62px;display:flex;justify-content:center;gap:16px}
-.pill{font-size:21px;font-weight:700;padding:13px 22px;border-radius:999px;border:1px solid #FFFFFF26;background:linear-gradient(180deg,#17191B,#0D0E0F);box-shadow:inset 0 1px 0 #FFFFFF14,0 12px 26px #000000B0}
-.pill b{color:var(--cyan)}
-.pill.repo{font:600 19px 'JetBrains Mono',monospace;color:var(--cyan);border-color:#00E5FF66;background:#00E5FF10}
+footer{position:absolute;left:80px;right:80px;bottom:50px;display:flex;justify-content:space-between;align-items:center}
+.note{font-size:21px;color:var(--dim)}
+.note b{color:var(--ice)}
+.pill{font:600 19px 'JetBrains Mono',monospace;color:var(--cyan);padding:12px 20px;border-radius:999px;border:1px solid #00E5FF66;background:#00E5FF10}
 </style></head><body>
 <div class="pattern"></div>
 
-<header><h1>I post on 3 platforms<br>by sending <em>one message.</em></h1></header>
-
-<div class="wrap">
-  <div class="col before">
-    <div class="label">BEFORE</div>
-    <div class="card">
-      <ul class="chores">
-        <li>Open Instagram, YouTube, LinkedIn</li>
-        <li>Upload the same video three times</li>
-        <li>Paste the caption into each one</li>
-        <li>Pick a time for every post</li>
-        <li>Reply to every comment</li>
-        <li>DM the link to each person</li>
-      </ul>
-      <div class="every">Every week, by hand.</div>
-    </div>
+<header>
+  <div>
+    <h1>Everything it <em>does for you.</em></h1>
+    <div class="sub">Instagram, YouTube and LinkedIn, run from a chat with <b>Claude</b> or <b>ChatGPT</b>.</div>
   </div>
+  <div class="ai"><img src="icons/claude.png" alt=""><img class="w" src="icons/chatgpt.png" alt=""></div>
+</header>
 
-  <div class="mid"><div class="arrow"></div></div>
-
-  <div class="col now">
-    <div class="label">NOW</div>
-    <div class="card">
-      <div class="msg">Post these <b>5 reels</b> this weekend. If anyone comments <b>AI</b>, send them the guide.</div>
-      <div class="reply"><img src="icons/claude.png" alt=""><div class="sched">
-        Sat 10:00, 18:00 <span>·</span> Sun 10:00, 18:00 <span>·</span> Mon 10:00<br>
-        <span>comment</span> AI <span>→</span> guide in DMs
-      </div></div>
-      <div class="plats">
-        <img src="icons/instagram.png" alt=""><img src="icons/youtube.png" alt="" style="height:40px"><img src="icons/linkedin.png" alt="">
-        <span class="t">Works with Claude or ChatGPT</span>
-      </div>
-    </div>
+<div class="grid">
+  <div class="card ig">
+    <h2><img src="icons/instagram.png" alt="">Instagram</h2>
+    <ul>
+      <li>Schedules reels, posts, carousels and stories</li>
+      <li>Sets custom reel covers</li>
+      <li>Converts videos to Instagram's best quality</li>
+      <li>Replies to comments with your keyword</li>
+      <li>DMs the link to everyone who comments</li>
+      <li>Checks they follow you before sending it</li>
+      <li>Follows up an hour later</li>
+      <li>Asks how it was and logs the answer</li>
+      <li>Answers story replies and mentions</li>
+      <li>Tracks who opened the link</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2><img class="yt" src="icons/youtube.png" alt="">YouTube</h2>
+    <ul>
+      <li>Uploads and schedules videos and Shorts</li>
+      <li>Puts your link in the description</li>
+      <li>Replies to keyword comments</li>
+      <li>Tracks views, likes and watch time</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2><img src="icons/linkedin.png" alt="">LinkedIn</h2>
+    <ul>
+      <li>Schedules text posts</li>
+      <li>Schedules image posts</li>
+      <li>Schedules videos</li>
+      <li>Schedules PDF carousels</li>
+    </ul>
+  </div>
+  <div class="card allc">
+    <h2><span class="all">3</span>Across all three</h2>
+    <ul>
+      <li>One content calendar</li>
+      <li>Turns PDFs into flipbook links</li>
+      <li>Shrinks PDFs before sending</li>
+      <li>Emails you if a post fails</li>
+      <li>Sends a daily summary</li>
+      <li>Stays inside each app's limits</li>
+      <li>Keeps your logins active</li>
+    </ul>
   </div>
 </div>
 
 <footer>
-  <div class="pill"><b>Free</b>, open source</div>
-  <div class="pill repo">github.com/pradyut-das/personal-automation</div>
+  <div class="note"><b>Free</b> and open source. Runs on Cloudflare's free tier.</div>
+  <div class="pill">github.com/pradyut-das/personal-automation</div>
 </footer>
 </body></html>
