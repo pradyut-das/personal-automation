@@ -117,6 +117,7 @@ def slug(name):
 
 
 def r2_put(path, key):
+    path = os.path.abspath(os.path.expanduser(path))   # wrangler runs from worker/, so relative paths must be resolved here
     size = os.path.getsize(path)
     if size > 300 * 1024 * 1024:
         sys.exit(f"{path} is {size / 1e6:.0f} MB; Instagram's limit is 300 MB")
