@@ -25,6 +25,11 @@ code{font:500 16px 'JetBrains Mono',monospace;color:var(--cyan)}
 .yt{border-color:#FF4D4D99}.yt h2 .dot{background:var(--yt)}
 .li{border-color:#3B9BFF99}.li h2 .dot{background:var(--li)}
 .dot{width:16px;height:16px;border-radius:5px;display:inline-block}
+.appicon{height:34px;width:auto;border-radius:9px;display:inline-block}
+.yt .appicon{height:26px;border-radius:0}
+.builtwith{display:inline-flex;align-items:center;gap:10px;margin-left:10px;vertical-align:middle}
+.builtwith img{height:30px;width:30px;object-fit:contain;border-radius:8px;background:#fff;padding:3px}
+.builtwith img.full{padding:0;background:none}
 .flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:12px}
 .step{font:600 15px 'Inter Tight';padding:7px 11px;border-radius:9px;background:#3D0F1F;border:1px solid #FF3D7166;color:#FFD2DE}
 .arrowtxt{color:var(--pink);font-weight:800}
@@ -86,7 +91,7 @@ svg{position:absolute;inset:0;pointer-events:none}
 
 <!-- platforms -->
 <div class="box ig" style="left:1370px;top:200px;width:470px">
-  <h2><span class="dot"></span>Instagram</h2>
+  <h2><img class="appicon" src="icons/instagram.png" alt="">Instagram</h2>
   <p style="margin-top:6px">Scheduled reels, posts, stories + covers</p>
   <div class="flow">
     <span class="step">comment "AI"</span><span class="arrowtxt">→</span><span class="step">reply</span><span class="arrowtxt">→</span><span class="step">DM</span>
@@ -94,7 +99,7 @@ svg{position:absolute;inset:0;pointer-events:none}
   </div>
 </div>
 <div class="box yt" style="left:1370px;top:520px;width:470px">
-  <h2><span class="dot"></span>YouTube</h2>
+  <h2><img class="appicon" src="icons/youtube.png" alt="">YouTube</h2>
   <ul>
     <li>Upload + schedule (YouTube publishes it)</li>
     <li>Link on the description's first line</li>
@@ -102,7 +107,7 @@ svg{position:absolute;inset:0;pointer-events:none}
   </ul>
 </div>
 <div class="box li" style="left:1370px;top:790px;width:470px">
-  <h2><span class="dot"></span>LinkedIn</h2>
+  <h2><img class="appicon" src="icons/linkedin.png" alt="">LinkedIn</h2>
   <ul>
     <li>Scheduled text, image, video, PDF carousel posts</li>
   </ul>
@@ -126,5 +131,5 @@ svg{position:absolute;inset:0;pointer-events:none}
   <path d="M1240 800 C 1300 800, 1310 850, 1368 850" stroke="#3B9BFF" stroke-width="3" fill="none" marker-end="url(#a)"/>
 </svg>
 
-<div class="foot">Open source · <b>Cloudflare Workers + D1 + R2</b> · Instagram Graph API · YouTube Data API · LinkedIn Posts API · built with Claude</div>
+<div class="foot">Open source · <b>Cloudflare Workers + D1 + R2</b> · Instagram Graph API · YouTube Data API · LinkedIn Posts API · built with <span class="builtwith"><img class="full" src="icons/claude.png" alt="Claude"><img src="icons/chatgpt.png" alt="ChatGPT"><img class="full" src="icons/tool-green.png" alt=""></span></div>
 </body></html>
