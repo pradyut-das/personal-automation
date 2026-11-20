@@ -2,134 +2,122 @@
 <html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=block" rel="stylesheet">
 <style>
-:root{--abyss:#001A21;--panel:#022C37;--panel2:#03384560;--line:#0E4B5A;--ice:#E6FBFF;--dim:#7FA3AD;--cyan:#00F5FF;--blue:#00BBF0;--pink:#FF3D71;--yt:#FF4D4D;--li:#3B9BFF}
+:root{--abyss:#001A21;--panel:#022C37;--line:#0E4B5A;--ice:#E6FBFF;--dim:#7FA3AD;--cyan:#00F5FF;--blue:#00BBF0;--pink:#FF3D71}
 *{box-sizing:border-box;margin:0}
-html,body{width:1920px;height:1080px;overflow:hidden;background:radial-gradient(1200px 700px at 50% 45%,#023341 0%,#001A21 70%);font-family:'Inter Tight',sans-serif;color:var(--ice)}
+html,body{width:1920px;height:1080px;overflow:hidden;background:radial-gradient(1300px 760px at 45% 50%,#023341 0%,#001A21 70%);font-family:'Inter Tight',sans-serif;color:var(--ice)}
 .grid{position:absolute;inset:0;background-image:linear-gradient(#0E4B5A33 1px,transparent 1px),linear-gradient(90deg,#0E4B5A33 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
-h1{position:absolute;left:80px;top:56px;font-size:58px;font-weight:900;letter-spacing:-.03em}
-h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 24px #FF3D7166}
-.sub{position:absolute;left:82px;top:132px;font-size:24px;color:var(--dim);font-weight:500}
-.box{position:absolute;background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:22px 26px;box-shadow:0 20px 50px #0007}
-.box h2{font-size:26px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
-.box h2 .tag{font:600 13px 'JetBrains Mono',monospace;color:var(--abyss);background:var(--cyan);border-radius:6px;padding:3px 8px;letter-spacing:.02em}
-.box p,.box li{font-size:18px;line-height:1.45;color:#B9DDE5}
-.box ul{padding-left:0;list-style:none;margin-top:10px}
-.box li{padding-left:22px;position:relative;margin:5px 0}
-.box li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:2px;background:var(--cyan)}
-code{font:500 16px 'JetBrains Mono',monospace;color:var(--cyan)}
+h1{position:absolute;left:70px;top:50px;font-size:60px;font-weight:900;letter-spacing:-.03em}
+h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 26px #FF3D7166}
+.sub{position:absolute;left:72px;top:128px;font-size:25px;color:var(--dim);font-weight:500}
+.box{position:absolute;background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:22px 24px;box-shadow:0 20px 50px #0007}
+.box h2{font-size:25px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.box p,.box li{font-size:17px;line-height:1.45;color:#B9DDE5}
+.box ul{list-style:none;padding:0;margin-top:10px}
+.box li{padding-left:20px;position:relative;margin:5px 0}
+.box li::before{content:"";position:absolute;left:3px;top:10px;width:7px;height:7px;border-radius:2px;background:var(--cyan)}
+code{font:500 15px 'JetBrains Mono',monospace;color:var(--cyan)}
+.chat{border-color:#FF3D7188;box-shadow:0 0 0 1px #FF3D7122,0 0 90px #FF3D7122,0 30px 60px #0008;background:linear-gradient(180deg,#05303B,#022832)}
+.chat .head{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;margin-bottom:14px}
+.chat .head .live{font:600 12px 'JetBrains Mono';color:#001A21;background:var(--pink);padding:3px 8px;border-radius:6px}
+.msg{font-size:18px;line-height:1.35;padding:12px 15px;border-radius:16px 16px 4px 16px;background:#0A4554;border:1px solid #11606F;margin:10px 0 10px 34px;color:var(--ice)}
+.msg b{color:var(--cyan);font-weight:700}
+.bot{font-size:16.5px;line-height:1.4;padding:12px 15px;border-radius:16px 16px 16px 4px;background:#3D0F1F;border:1px solid #FF3D7155;margin:14px 34px 0 0;color:#FFD9E3;display:flex;gap:10px;align-items:flex-start}
+.bot img{width:26px;height:26px;border-radius:7px;flex:none;margin-top:1px}
+.agent{border-color:#00F5FF66}
+.icons{display:flex;gap:10px;margin:4px 0 14px}
+.icons img{width:52px;height:52px;border-radius:14px;object-fit:contain;background:#fff;padding:6px}
+.icons img.full{padding:0;background:none}
 .worker{border-color:#00F5FF88;box-shadow:0 0 0 1px #00F5FF22,0 0 80px #00BBF033,0 30px 60px #0008;background:linear-gradient(180deg,#033B48,#022832)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.chip{font:600 15px 'Inter Tight';padding:9px 13px;border-radius:12px;background:#011F27;border:1px solid var(--line);color:var(--ice)}
+.tag{font:600 12px 'JetBrains Mono',monospace;color:var(--abyss);background:var(--cyan);border-radius:6px;padding:3px 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font:600 14.5px 'Inter Tight';padding:8px 11px;border-radius:11px;background:#011F27;border:1px solid var(--line);color:var(--ice)}
 .chip b{color:var(--cyan);font-weight:700}
-.ig{border-color:#FF3D7199}.ig h2 .dot{background:linear-gradient(135deg,#FFB13D,#FF3D71,#B23DFF)}
-.yt{border-color:#FF4D4D99}.yt h2 .dot{background:var(--yt)}
-.li{border-color:#3B9BFF99}.li h2 .dot{background:var(--li)}
-.dot{width:16px;height:16px;border-radius:5px;display:inline-block}
-.appicon{height:34px;width:auto;border-radius:9px;display:inline-block}
-.yt .appicon{height:26px;border-radius:0}
-.builtwith{display:inline-flex;align-items:center;gap:10px;margin-left:10px;vertical-align:middle}
-.builtwith img{height:30px;width:30px;object-fit:contain;border-radius:8px;background:#fff;padding:3px}
-.builtwith img.full{padding:0;background:none}
-.flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:12px}
-.step{font:600 15px 'Inter Tight';padding:7px 11px;border-radius:9px;background:#3D0F1F;border:1px solid #FF3D7166;color:#FFD2DE}
-.arrowtxt{color:var(--pink);font-weight:800}
+.plat h2 img{height:32px;width:auto;border-radius:8px}
+.plat.yt h2 img{height:24px;border-radius:0}
+.ig{border-color:#FF3D7199}.yt{border-color:#FF4D4D99}.li{border-color:#3B9BFF99}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px}
+.step{font:600 14px 'Inter Tight';padding:6px 9px;border-radius:8px;background:#3D0F1F;border:1px solid #FF3D7166;color:#FFD2DE}
+.ar{color:var(--pink);font-weight:800}
 svg{position:absolute;inset:0;pointer-events:none}
+.box{translate:0 70px}
 .lbl{font:600 15px 'JetBrains Mono',monospace;fill:var(--dim)}
-.foot{position:absolute;left:80px;bottom:44px;font-size:18px;color:var(--dim)}
+.foot{position:absolute;left:70px;bottom:40px;font-size:18px;color:var(--dim)}
 .foot b{color:var(--ice)}
 </style></head><body>
 <div class="grid"></div>
-<h1>Personal Automation <em>·</em> 3 platforms, 1 Worker</h1>
-<div class="sub">How I post and reply on Instagram, YouTube and LinkedIn without opening the apps</div>
+<h1>Run Instagram, YouTube &amp; LinkedIn <em>from a chat</em></h1>
+<div class="sub">Tell Claude or ChatGPT what to post. It schedules, sets up DMs and reports back.</div>
 
-<!-- you -->
-<div class="box" style="left:80px;top:250px;width:390px">
-  <h2>👤 Me</h2>
-  <p style="margin-top:8px">One command line tool</p>
-  <ul>
-    <li><code>post-add</code> schedule reels &amp; posts</li>
-    <li><code>auto-add</code> comment → DM automations</li>
-    <li><code>yt-post-add</code> schedule YouTube</li>
-    <li><code>li-post-add</code> schedule LinkedIn</li>
-    <li><code>stats</code> · <code>calendar</code> · <code>leads</code></li>
-  </ul>
-</div>
-<div class="box" style="left:80px;top:690px;width:390px">
-  <h2>📊 Dashboard + 📧 alerts</h2>
-  <ul>
-    <li>Content calendar across all 3</li>
-    <li>Leads, link opens, post stats</li>
-    <li>Email on failures + daily summary</li>
-  </ul>
+<div class="box chat" style="left:70px;top:210px;width:560px">
+  <div class="head">💬 You <span class="live">PLAIN ENGLISH</span></div>
+  <div class="msg">Schedule these <b>5 reels</b>, one at <b>10am</b> and one at <b>6pm</b></div>
+  <div class="msg">If anyone comments <b>"AI"</b>, DM them the workflow PDF, only if they follow me</div>
+  <div class="msg">Put the guide link on my <b>YouTube</b> video</div>
+  <div class="msg">Post this carousel on <b>LinkedIn</b> Monday 9am</div>
+  <div class="msg">How did yesterday's reel do?</div>
+  <div class="bot"><img src="icons/claude.png" alt=""><span>Done ✓ 5 reels queued Sat–Mon, AI → DM live on each. Yesterday's reel: views, leads and link opens are in your summary.</span></div>
 </div>
 
-<!-- worker -->
-<div class="box worker" style="left:600px;top:250px;width:640px;height:590px">
-  <h2>☁️ Cloudflare Worker <span class="tag">FREE TIER</span></h2>
-  <p style="margin-top:8px">Runs 24/7. No server, no laptop needed.</p>
+<div class="box agent" style="left:720px;top:300px;width:330px">
+  <h2>Your AI agent</h2>
+  <div class="icons" style="margin-top:12px"><img class="full" src="icons/claude.png" alt="Claude"><img src="icons/chatgpt.png" alt="ChatGPT"><img class="full" src="icons/tool-green.png" alt=""></div>
+  <ul>
+    <li>Claude Code or Codex</li>
+    <li>Reads <code>AGENTS.md</code></li>
+    <li>Runs <code>pa.py</code> for you</li>
+    <li>Confirms before posting</li>
+  </ul>
+</div>
+
+<div class="box worker" style="left:1140px;top:250px;width:330px;height:520px">
+  <h2>☁️ Worker</h2>
+  <p style="margin-top:6px">Cloudflare, 24/7 <span class="tag">FREE</span></p>
   <div class="chips">
     <span class="chip"><b>Cron</b> every minute</span>
-    <span class="chip"><b>Webhooks</b> signed, stored, retried</span>
+    <span class="chip"><b>Webhooks</b> saved + retried</span>
     <span class="chip"><b>D1</b> database</span>
-    <span class="chip"><b>R2</b> videos, covers, PDFs</span>
-    <span class="chip"><b>Queue</b> rate limits</span>
-    <span class="chip"><b>Flipbook</b> PDF links</span>
+    <span class="chip"><b>R2</b> videos, PDFs</span>
+    <span class="chip"><b>Rate-limit</b> queue</span>
+    <span class="chip"><b>Flipbook</b> PDFs</span>
     <span class="chip"><b>Click</b> tracking</span>
-  </div>
-  <ul style="margin-top:22px">
-    <li>Publishes at the exact time, in each platform's best format</li>
-    <li>Reels checked and encoded to Instagram's top spec</li>
-    <li>Every comment and DM saved before it's processed</li>
-    <li>Tokens renew themselves, quotas are tracked</li>
-  </ul>
-  <div style="margin-top:22px;padding-top:18px;border-top:1px solid #0E4B5A;display:flex;gap:10px;flex-wrap:wrap">
-    <span class="chip">📅 <b>Calendar</b> all platforms</span>
-    <span class="chip">📧 <b>Resend</b> alerts + daily summary</span>
-    <span class="chip">🔒 <b>Secrets</b> in Cloudflare</span>
+    <span class="chip">📅 <b>Calendar</b></span>
+    <span class="chip">📧 <b>Alerts</b> + daily summary</span>
   </div>
 </div>
 
-<!-- platforms -->
-<div class="box ig" style="left:1370px;top:200px;width:470px">
-  <h2><img class="appicon" src="icons/instagram.png" alt="">Instagram</h2>
-  <p style="margin-top:6px">Scheduled reels, posts, stories + covers</p>
-  <div class="flow">
-    <span class="step">comment "AI"</span><span class="arrowtxt">→</span><span class="step">reply</span><span class="arrowtxt">→</span><span class="step">DM</span>
-    <span class="arrowtxt">→</span><span class="step">follow check</span><span class="arrowtxt">→</span><span class="step">link</span><span class="arrowtxt">→</span><span class="step">1h follow-up</span>
-  </div>
+<div class="box plat ig" style="left:1540px;top:200px;width:330px">
+  <h2><img src="icons/instagram.png" alt="">Instagram</h2>
+  <p style="margin-top:6px">Reels, posts, stories, covers</p>
+  <div class="flow"><span class="step">comment "AI"</span><span class="ar">→</span><span class="step">DM</span><span class="ar">→</span><span class="step">follow check</span><span class="ar">→</span><span class="step">link</span><span class="ar">→</span><span class="step">follow-up</span></div>
 </div>
-<div class="box yt" style="left:1370px;top:520px;width:470px">
-  <h2><img class="appicon" src="icons/youtube.png" alt="">YouTube</h2>
-  <ul>
-    <li>Upload + schedule (YouTube publishes it)</li>
-    <li>Link on the description's first line</li>
-    <li>Views, likes, watch time</li>
-  </ul>
+<div class="box plat yt" style="left:1540px;top:480px;width:330px">
+  <h2><img src="icons/youtube.png" alt="">YouTube</h2>
+  <ul><li>Scheduled uploads</li><li>Link in description</li><li>Stats</li></ul>
 </div>
-<div class="box li" style="left:1370px;top:790px;width:470px">
-  <h2><img class="appicon" src="icons/linkedin.png" alt="">LinkedIn</h2>
-  <ul>
-    <li>Scheduled text, image, video, PDF carousel posts</li>
-  </ul>
+<div class="box plat li" style="left:1540px;top:720px;width:330px">
+  <h2><img src="icons/linkedin.png" alt="">LinkedIn</h2>
+  <ul><li>Text, image, video, PDF carousel</li></ul>
 </div>
 
 <svg viewBox="0 0 1920 1080">
   <defs>
-    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#00F5FF"/></marker>
+    <marker id="c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#00F5FF"/></marker>
     <marker id="p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FF3D71"/></marker>
   </defs>
-  <!-- me -> worker -->
-  <path d="M470 380 C 530 380, 540 380, 598 380" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#a)"/>
-  <text x="482" y="366" class="lbl">admin API</text>
-  <!-- worker -> dashboard -->
-  <path d="M600 780 C 540 780, 530 780, 472 780" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#a)"/>
-  <!-- worker -> platforms -->
-  <path d="M1240 330 C 1300 330, 1310 300, 1368 300" stroke="#FF3D71" stroke-width="3" fill="none" marker-end="url(#p)"/>
-  <path d="M1368 360 C 1310 360, 1300 400, 1242 400" stroke="#FF3D71" stroke-width="3" stroke-dasharray="7 7" fill="none" marker-end="url(#p)"/>
-  <text x="1252" y="440" class="lbl" style="fill:#FF9DB6">webhooks</text>
-  <path d="M1240 600 C 1300 600, 1310 610, 1368 610" stroke="#FF4D4D" stroke-width="3" fill="none" marker-end="url(#a)"/>
-  <path d="M1240 800 C 1300 800, 1310 850, 1368 850" stroke="#3B9BFF" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <g transform="translate(0,70)">
+  <path d="M630 390 C 670 390, 680 390, 718 390" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#c)"/>
+  <text x="636" y="374" class="lbl">asks</text>
+  <path d="M718 580 C 680 580, 670 690, 632 690" stroke="#FF3D71" stroke-width="3" stroke-dasharray="7 7" fill="none" marker-end="url(#p)"/>
+  <text x="642" y="626" class="lbl" style="fill:#FF9DB6">confirms</text>
+  <text x="642" y="646" class="lbl" style="fill:#FF9DB6">+ reports</text>
+  <path d="M1050 480 C 1095 480, 1100 480, 1138 480" stroke="#00F5FF" stroke-width="3" fill="none" marker-end="url(#c)"/>
+  <text x="1058" y="464" class="lbl">pa.py</text>
+  <path d="M1470 300 C 1505 300, 1508 290, 1538 290" stroke="#FF3D71" stroke-width="3" fill="none" marker-end="url(#p)"/>
+  <path d="M1538 360 C 1508 360, 1505 380, 1472 380" stroke="#FF3D71" stroke-width="3" stroke-dasharray="7 7" fill="none" marker-end="url(#p)"/>
+  <path d="M1470 560 C 1505 560, 1508 560, 1538 560" stroke="#FF4D4D" stroke-width="3" fill="none" marker-end="url(#c)"/>
+  <path d="M1470 700 C 1505 700, 1508 780, 1538 780" stroke="#3B9BFF" stroke-width="3" fill="none" marker-end="url(#c)"/>
+  </g>
 </svg>
 
-<div class="foot">Open source · <b>Cloudflare Workers + D1 + R2</b> · Instagram Graph API · YouTube Data API · LinkedIn Posts API · built with <span class="builtwith"><img class="full" src="icons/claude.png" alt="Claude"><img src="icons/chatgpt.png" alt="ChatGPT"><img class="full" src="icons/tool-green.png" alt=""></span></div>
+<div class="foot">Open source · <b>github.com/pradyut-das/personal-automation</b> · Cloudflare Workers + D1 + R2 · Instagram, YouTube &amp; LinkedIn APIs</div>
 </body></html>

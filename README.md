@@ -1,10 +1,23 @@
 # Personal Automation
 
-**Run Instagram, YouTube and LinkedIn from one Cloudflare Worker.** Schedule posts, send "comment AI → get the link in your DMs" automations, put links in YouTube descriptions, and see everything on one calendar. No server, no laptop left on, and it fits in Cloudflare's free tier.
+**Run your Instagram, YouTube and LinkedIn by chatting with Claude or ChatGPT.**
+
+> "Schedule these 5 reels, one at 10am and one at 6pm."
+> "If anyone comments AI, DM them the workflow PDF, but only if they follow me."
+> "Put the guide link on my YouTube video."
+> "Post this carousel on LinkedIn Monday 9am."
+> "How did yesterday's reel do, and who asked for the guide?"
+
+You say it in plain language. **Claude Code** (or **ChatGPT's Codex**) reads [`AGENTS.md`](AGENTS.md), runs this repo's `pa.py`, shows you exactly what it's about to post, and reports back. A small Cloudflare Worker does the rest 24/7 on the free tier: publishing, comment → DM flows, follow-ups, link tracking, alerts. No dashboards to click through, no paid DM tools, no laptop left on.
 
 ![How it works](docs/flowchart.png)
 
-I built this with Claude to replace the paid DM and scheduling tools I was using. This repo is a minimal, cleaned-up copy you can deploy for your own accounts.
+I built this with Claude to run my own accounts and replaced the paid tools I was using. This repo is a minimal, cleaned-up copy you can deploy for yours.
+
+### Use it from a chat
+1. Deploy it once (see **Setup** below; you can ask your agent to walk you through it).
+2. Open the repo in **Claude Code** (`claude`) or **Codex** (`codex`).
+3. Just ask. The agent follows [`AGENTS.md`](AGENTS.md): it confirms captions, times and links with you before anything is published or sent.
 
 ---
 
@@ -35,9 +48,10 @@ I built this with Claude to replace the paid DM and scheduling tools I was using
   - a **daily cron** for token refresh, cleanup and the summary email, and a **6-hourly** one for analytics
 - **Webhooks** from Meta are signature-checked, **saved to the database before they're processed**, de-duplicated, and retried with backoff (1, 5, 15, 60 min).
 - **D1** (SQLite) holds accounts, automations, leads, posts and events. **R2** holds uploaded videos, covers and PDFs. PDFs are served as a mobile flipbook.
-- **`pa.py`** is the command line you use. It uploads files straight to R2 (so large videos skip the Worker's 100 MB request limit) and calls the Worker's admin API.
+- **`pa.py`** is the command line your AI agent runs for you (you can run it yourself too). It uploads files straight to R2 (so large videos skip the Worker's 100 MB request limit) and calls the Worker's admin API.
 
 ```
+AGENTS.md             how Claude Code / Codex should operate this from a chat
 worker/
   src/index.js        router, admin API, legal pages, crons
   src/webhooks.js     durable webhook store + retries
@@ -120,6 +134,8 @@ chmod +x pa.py && ./pa.py --help
 ---
 
 ## Usage
+
+The easiest way is to ask your agent ("schedule this reel tomorrow 6pm with a GUIDE automation"). These are the commands it runs:
 
 ```bash
 # Instagram: schedule a reel with a comment → DM automation that goes live when it publishes
