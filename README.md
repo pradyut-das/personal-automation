@@ -34,16 +34,6 @@ I built this with Claude to run my own accounts and replaced the paid tools I wa
 
 **Across all three:** a content calendar, a read-only team dashboard, email alerts (failed DMs, disconnected accounts, "need help" replies) and a daily summary.
 
-### Coming soon
-| | Platform | Planned |
-|---|---|---|
-| <img src="docs/icons/threads.svg" width="28"> | **Threads** | Scheduled text, image and video posts; keyword replies |
-| <img src="docs/icons/x.svg" width="28"> | **X (Twitter)** | Scheduled posts and threads with media |
-| <img src="docs/icons/facebook.svg" width="28"> | **Facebook Pages** | Scheduled posts and reels; comment → Messenger DM |
-| <img src="docs/icons/pinterest.svg" width="28"> | **Pinterest** | Scheduled pins to your boards |
-
-Same idea for each: you ask in the chat, and the agent schedules it through the same Worker and calendar.
-
 ### What the platforms don't allow (so this doesn't either)
 - **Instagram:** DMs only within 24 hours of the person's last message; one private reply per comment; ~200 automated DMs/hour. If another tool (ManyChat, SuperProfile, etc.) owns a conversation, you can't reply in it.
 - **YouTube:** no DMs; 10,000 API units/day (an upload costs 1,600, a comment reply 50). Uploads from an **unaudited** Google Cloud project stay private until Google approves the project.
