@@ -1,6 +1,8 @@
 # Personal Automation
 
-**Post everywhere by just asking.** Tell Claude or ChatGPT what to post, and it goes out on Instagram, YouTube and LinkedIn. Free and open source: set it up once, then just chat.
+**Post on Instagram, YouTube and LinkedIn by sending one message.**
+
+Instead of uploading the same video to three apps, pasting captions, picking times and DMing links to everyone who comments, you tell Claude or ChatGPT what you want. It schedules the posts and sends the DMs. Free and open source.
 
 > "Schedule these 5 reels, one at 10am and one at 6pm."
 > "If anyone comments AI, DM them the workflow PDF, but only if they follow me."
