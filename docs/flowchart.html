@@ -2,151 +2,111 @@
 <html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=block" rel="stylesheet">
 <style>
-:root{--bg:#001A21;--line:#0F4655;--ice:#E6FBFF;--dim:#86A9B2;--txt:#B9D9E0;--cyan:#00F5FF;--blue:#00BBF0;--pink:#FF3D71}
+:root{--bg:#060708;--line:#FFFFFF1C;--ice:#FFFFFF;--dim:#9AA2A6;--txt:#C7CDD0;--cyan:#00E5FF}
 *{box-sizing:border-box;margin:0}
 html,body{width:1920px;height:1080px;overflow:hidden;font-family:'Inter Tight',sans-serif;color:var(--ice);
-  background:radial-gradient(900px 500px at 20% 35%,#05374566,transparent 70%),radial-gradient(900px 600px at 85% 70%,#05374555,transparent 70%),var(--bg)}
-.dots{position:absolute;inset:0;background-image:radial-gradient(#0F465577 1.2px,transparent 1.2px);background-size:34px 34px;mask-image:linear-gradient(#000,transparent 70%)}
-.card{background:linear-gradient(180deg,#053340,#022630);border:1.5px solid var(--line);border-radius:22px;box-shadow:0 24px 60px #0009}
+  background:radial-gradient(1400px 700px at 50% -10%,#2A2F33 0%,#111416 38%,transparent 70%),radial-gradient(1000px 500px at 50% 115%,#00E5FF18,transparent 70%),var(--bg)}
+.pattern{position:absolute;inset:0;
+  background-image:radial-gradient(#FFFFFF2A 1.1px,transparent 1.2px),repeating-linear-gradient(135deg,#FFFFFF07 0 1px,transparent 1px 22px);
+  background-size:30px 30px,auto;mask-image:radial-gradient(ellipse 85% 80% at 50% 45%,#000 35%,transparent 85%)}
+.pattern::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 55%,#000000B0 100%)}
+.card{background:linear-gradient(180deg,#17191B 0%,#0D0E0F 100%);border:1px solid var(--line);border-radius:30px;
+  box-shadow:inset 0 1px 0 #FFFFFF1A,0 40px 80px -12px #000000F0,0 10px 24px #000000A0}
 
-header{position:absolute;left:80px;top:52px;right:80px;display:flex;justify-content:space-between;align-items:flex-end}
-h1{font-size:64px;font-weight:900;letter-spacing:-.035em;line-height:1}
-h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 30px #FF3D7155}
-.sub{margin-top:12px;font-size:23px;color:var(--dim);font-weight:500}
-.repo{font:600 18px 'JetBrains Mono',monospace;color:var(--cyan);border:1.5px solid #00F5FF55;border-radius:12px;padding:10px 16px;background:#00F5FF0d}
+header{position:absolute;left:0;right:0;top:92px;text-align:center}
+h1{font-size:96px;font-weight:900;letter-spacing:-.04em;line-height:1}
+h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 40px #00E5FF66}
+.sub{margin-top:22px;font-size:30px;color:var(--dim);font-weight:500}
+.sub b{color:var(--ice);font-weight:700}
 
-/* ---------- flow row ---------- */
-.flow{position:absolute;left:80px;right:80px;top:215px;height:420px;display:grid;grid-template-columns:1.2fr 0.85fr 0.85fr 1.15fr;gap:58px}
-.col{display:flex;flex-direction:column;min-height:0}
-.step{font:700 15px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.06em;margin-bottom:12px}
-.step span{color:var(--dim)}
-.col > .card{flex:1;padding:22px;display:flex;flex-direction:column}
-h3{font-size:25px;font-weight:800;letter-spacing:-.015em;line-height:1.15}
-.col p{font-size:17.5px;line-height:1.42;color:var(--txt);margin-top:9px}
-.chat{border-color:#FF3D7180;box-shadow:0 0 0 1px #FF3D7120,0 0 90px #FF3D711c,0 24px 60px #0009}
-.bubble{align-self:flex-end;max-width:94%;font-size:17.5px;line-height:1.3;font-weight:600;padding:11px 15px;border-radius:18px 18px 5px 18px;background:#0B4656;border:1px solid #13677A;margin-bottom:9px}
-.bubble b{color:var(--cyan)}
-.reply{margin-top:auto;display:flex;gap:10px;align-items:flex-start;font-size:16.5px;line-height:1.38;padding:11px 14px;border-radius:18px 18px 18px 5px;background:#3A0E1D;border:1px solid #FF3D7160;color:#FFDCE5}
-.reply img{width:28px;height:28px;border-radius:8px;flex:none}
-.logos{display:flex;gap:12px;margin-bottom:16px}
-.logos img{width:62px;height:62px;border-radius:17px;object-fit:contain}
-.logos .w{background:#fff;padding:9px}
-.cf{width:62px;height:62px;border-radius:17px;background:linear-gradient(135deg,#F6821F,#FBAD41);display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:16px}
-.free{display:inline-block;font:700 12px 'JetBrains Mono';color:var(--bg);background:var(--cyan);border-radius:6px;padding:3px 7px;vertical-align:middle}
-.ticks{list-style:none;padding:0;margin-top:auto}
-.ticks li{font-size:16.5px;color:#CDE9EF;padding:8px 0 8px 26px;position:relative;border-top:1px solid #0F465599}
-.ticks li::before{content:"✓";position:absolute;left:1px;top:7px;color:var(--cyan);font-weight:800}
-.plats{display:flex;flex-direction:column;gap:11px;flex:1}
-.plat{display:flex;align-items:center;gap:16px;padding:13px 18px}
-.plat img{width:46px;height:46px;object-fit:contain;flex:none}
-.plat img.yt{height:33px}
-.plat b{display:block;font-size:21px;font-weight:800}
-.plat span{font-size:15px;color:var(--txt)}
-.plat.ig{border-color:#FF3D7170}.plat.yt2{border-color:#FF4D4D70}.plat.li{border-color:#3B9BFF70}
-.soon{margin-top:auto;border:1.5px dashed #2B6B7B;border-radius:18px;padding:12px 16px;display:flex;align-items:center;gap:14px}
-.soon .lbl{font:700 13px 'JetBrains Mono';color:#FFB547;letter-spacing:.06em;line-height:1.3;width:70px}
-.soon .ic{display:flex;gap:14px}
-.soon figure{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12.5px;color:var(--dim);opacity:.92}
-.soon img{width:38px;height:38px;border-radius:10px}
+.steps{position:absolute;left:150px;right:150px;top:360px;height:500px;display:grid;grid-template-columns:1.15fr 0.85fr 1fr;gap:110px}
+.col{display:flex;flex-direction:column}
+.num{font:700 18px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.08em;margin-bottom:16px;text-align:center}
+.num span{color:var(--ice)}
+.col > .card{flex:1;padding:34px;display:flex;flex-direction:column;justify-content:center}
+
+.chat{border-color:#00E5FF59;box-shadow:inset 0 1px 0 #FFFFFF1A,0 0 0 1px #00E5FF1F,0 0 110px #00E5FF1F,0 40px 80px -12px #000000F0}
+.bubble{align-self:flex-end;font-size:24px;line-height:1.3;font-weight:600;padding:16px 22px;border-radius:24px 24px 6px 24px;background:#fff;color:#0A0B0C;margin-bottom:16px;box-shadow:0 8px 20px #00000090}
+.bubble b{color:#0089A8}
+.reply{display:flex;gap:14px;align-items:center;font-size:22px;line-height:1.35;padding:16px 20px;border-radius:24px 24px 24px 6px;background:#0A1A1D;border:1px solid #00E5FF55;margin-top:8px}
+.reply img{width:38px;height:38px;border-radius:10px;flex:none}
+
+.ai{align-items:center;text-align:center}
+.logos{display:flex;gap:18px;justify-content:center;margin-bottom:26px}
+.logos img{width:110px;height:110px;border-radius:28px;object-fit:contain;box-shadow:0 14px 30px #000000C0}
+.logos .w{background:#fff;padding:16px}
+.ai h3{font-size:34px;font-weight:800;letter-spacing:-.02em}
+.ai p{font-size:22px;color:var(--txt);margin-top:10px;line-height:1.4}
+
+.live{display:flex;justify-content:center;gap:30px}
+.live figure{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:21px;font-weight:700}
+.live img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 14px 22px #000000C0)}
+.live img.yt{width:110px;height:96px}
+.soon{margin-top:34px;padding-top:24px;border-top:1px solid #FFFFFF14;text-align:center}
+.soon .lbl{font:700 15px 'JetBrains Mono';color:var(--cyan);letter-spacing:.1em;margin-bottom:14px}
+.soon .ic{display:flex;justify-content:center;gap:22px}
+.soon img{width:52px;height:52px;border-radius:14px;opacity:.85;box-shadow:0 8px 18px #000000B0}
 .soon img.round{border-radius:50%}
-.arrow{position:absolute;top:418px;height:5px;border-radius:5px;background:linear-gradient(90deg,#00BBF0,#00F5FF);box-shadow:0 0 16px #00F5FF88}
-.arrow::after{content:"";position:absolute;right:-9px;top:-7px;border-left:14px solid #00F5FF;border-top:9.5px solid transparent;border-bottom:9.5px solid transparent;filter:drop-shadow(0 0 5px #00F5FF)}
 
-/* ---------- features ---------- */
-.fhead{position:absolute;left:80px;top:668px;font:700 15px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.06em}
-.fhead span{color:var(--dim)}
-.feats{position:absolute;left:80px;right:80px;top:698px;height:310px;display:grid;grid-template-columns:1.35fr 1fr 0.9fr 1.35fr;gap:22px}
-.feat{padding:18px 20px}
-.feat h4{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;margin-bottom:8px}
-.feat h4 img{width:28px;height:28px;object-fit:contain}
-.feat h4 img.yt{height:20px}
-.feat ul{list-style:none;padding:0;columns:1}
-.feat.two ul{columns:2;column-gap:18px}
-.feat li{font-size:15.5px;line-height:1.3;color:var(--txt);padding:4px 0 4px 16px;position:relative;break-inside:avoid}
-.feat li::before{content:"";position:absolute;left:1px;top:11px;width:6px;height:6px;border-radius:2px;background:var(--cyan)}
-.feat.ig{border-color:#FF3D7155}.feat.ig li::before{background:var(--pink)}
-.feat.yt2{border-color:#FF4D4D55}.feat.yt2 li::before{background:#FF4D4D}
-.feat.li{border-color:#3B9BFF55}.feat.li li::before{background:#3B9BFF}
-.feat.all{border-color:#00F5FF55}
+.arrow{position:absolute;top:640px;height:5px;border-radius:5px;background:linear-gradient(90deg,#FFFFFF33,#00E5FF);box-shadow:0 0 18px #00E5FF88}
+.arrow::after{content:"";position:absolute;right:-11px;top:-9px;border-left:17px solid #00E5FF;border-top:11.5px solid transparent;border-bottom:11.5px solid transparent;filter:drop-shadow(0 0 6px #00E5FF)}
+
+.offer{position:absolute;left:0;right:0;bottom:70px;display:flex;justify-content:center;gap:16px}
+.pill{font-size:22px;font-weight:700;padding:14px 24px;border-radius:999px;border:1px solid #FFFFFF26;background:linear-gradient(180deg,#17191B,#0D0E0F);box-shadow:inset 0 1px 0 #FFFFFF14,0 12px 26px #000000B0}
+.pill b{color:var(--cyan)}
+.pill.repo{font:600 20px 'JetBrains Mono',monospace;color:var(--cyan);border-color:#00E5FF66;background:#00E5FF10}
 </style></head><body>
-<div class="dots"></div>
+<div class="pattern"></div>
+
 <header>
-  <div><h1>Run your socials <em>from a chat.</em></h1>
-  <div class="sub">Tell Claude or ChatGPT what to post. It schedules, sets up DMs and reports back.</div></div>
-  <div class="repo">github.com/pradyut-das/personal-automation</div>
+  <h1>Post everywhere <em>by just asking.</em></h1>
+  <div class="sub">Tell <b>Claude</b> or <b>ChatGPT</b> what to post. It goes out on Instagram, YouTube and LinkedIn.</div>
 </header>
 
-<div class="flow">
+<div class="steps">
   <div class="col">
-    <div class="step">01 <span>YOU ASK</span></div>
+    <div class="num">01 <span>YOU ASK</span></div>
     <div class="card chat">
-      <div class="bubble">Schedule these <b>5 reels</b>, 10am and 6pm</div>
-      <div class="bubble">Anyone who comments <b>"AI"</b> gets the PDF in DMs</div>
-      <div class="bubble">Post this carousel on <b>LinkedIn</b> Monday</div>
-      <div class="reply"><img src="icons/claude.png" alt=""><span>Done ✓ All scheduled. I'll DM the guide and follow up an hour later.</span></div>
+      <div class="bubble">Post these <b>5 reels</b> this weekend</div>
+      <div class="bubble">DM the guide to anyone who comments <b>"AI"</b></div>
+      <div class="reply"><img src="icons/claude.png" alt=""><span>Done ✓ Scheduled, and the DMs are on.</span></div>
     </div>
   </div>
   <div class="col">
-    <div class="step">02 <span>AI DOES IT</span></div>
-    <div class="card">
+    <div class="num">02 <span>AI DOES IT</span></div>
+    <div class="card ai">
       <div class="logos"><img src="icons/claude.png" alt=""><img class="w" src="icons/chatgpt.png" alt=""></div>
-      <h3>Claude Code or Codex</h3>
-      <p>Uploads files, writes captions, sets automations.</p>
-      <ul class="ticks"><li>Shows you everything first</li><li>Posts only after your yes</li></ul>
+      <h3>Claude or ChatGPT</h3>
+      <p>Checks with you, then handles the rest</p>
     </div>
   </div>
   <div class="col">
-    <div class="step">03 <span>RUNS 24/7</span></div>
+    <div class="num">03 <span>IT'S POSTED</span></div>
     <div class="card">
-      <div class="cf">☁️</div>
-      <h3>Cloudflare Worker <span class="free">FREE</span></h3>
-      <p>Publishes on time, sends DMs and follow-ups.</p>
-      <ul class="ticks"><li>No server, no laptop on</li><li>Email if anything breaks</li></ul>
-    </div>
-  </div>
-  <div class="col">
-    <div class="step">04 <span>GOES LIVE</span></div>
-    <div class="plats">
-      <div class="card plat ig"><img src="icons/instagram.png" alt=""><div><b>Instagram</b><span>Reels, posts, stories, comment → DM</span></div></div>
-      <div class="card plat yt2"><img class="yt" src="icons/youtube.png" alt=""><div><b>YouTube</b><span>Uploads, links in description</span></div></div>
-      <div class="card plat li"><img src="icons/linkedin.png" alt=""><div><b>LinkedIn</b><span>Posts, videos, PDF carousels</span></div></div>
+      <div class="live">
+        <figure><img src="icons/instagram.png" alt=""><figcaption>Instagram</figcaption></figure>
+        <figure><img class="yt" src="icons/youtube.png" alt=""><figcaption>YouTube</figcaption></figure>
+        <figure><img src="icons/linkedin.png" alt=""><figcaption>LinkedIn</figcaption></figure>
+      </div>
       <div class="soon"><div class="lbl">COMING SOON</div><div class="ic">
-        <figure><img src="icons/threads.svg" alt=""><figcaption>Threads</figcaption></figure>
-        <figure><img src="icons/x.svg" alt=""><figcaption>X</figcaption></figure>
-        <figure><img src="icons/facebook.svg" alt=""><figcaption>Facebook</figcaption></figure>
-        <figure><img class="round" src="icons/pinterest.svg" alt=""><figcaption>Pinterest</figcaption></figure>
+        <img src="icons/threads.svg" alt=""><img src="icons/x.svg" alt=""><img src="icons/facebook.svg" alt=""><img class="round" src="icons/pinterest.svg" alt="">
       </div></div>
     </div>
   </div>
 </div>
-<div class="arrow" id="a1"></div><div class="arrow" id="a2"></div><div class="arrow" id="a3"></div>
+<div class="arrow" id="a1"></div><div class="arrow" id="a2"></div>
 
-<div class="fhead">EVERYTHING IT DOES <span>· ALL FROM A CHAT</span></div>
-<div class="feats">
-  <div class="card feat ig two"><h4><img src="icons/instagram.png" alt="">Instagram</h4><ul>
-    <li>Scheduled reels, posts, carousels, stories</li><li>Custom reel covers</li>
-    <li>Comment keyword → reply → DM</li><li>Follow check before the link</li>
-    <li>Tracked links</li><li>1h follow-up: "opened it?"</li>
-    <li>"How was it?" quick replies</li><li>Story reply + mention triggers</li>
-    <li>DM keywords, any-post keywords</li><li>Views, reach, saves, leads</li></ul></div>
-  <div class="card feat yt2"><h4><img class="yt" src="icons/youtube.png" alt="">YouTube</h4><ul>
-    <li>Scheduled uploads (native publish)</li><li>Link on the description's 1st line</li>
-    <li>Optional keyword comment replies</li><li>Views, likes, watch time</li><li>Daily quota guard</li></ul></div>
-  <div class="card feat li"><h4><img src="icons/linkedin.png" alt="">LinkedIn</h4><ul>
-    <li>Text posts</li><li>Single + multi-image</li><li>Video posts</li><li>PDF carousels</li><li>Sign-in expiry reminders</li></ul></div>
-  <div class="card feat all two"><h4>⚡ Everywhere</h4><ul>
-    <li>Content calendar</li><li>Read-only team dashboard</li>
-    <li>Email alerts + daily summary</li><li>Reels encoded to IG's top spec</li>
-    <li>PDF flipbook links</li><li>PDF compression</li>
-    <li>Webhooks saved + retried</li><li>Rate-limit queue</li>
-    <li>AGENTS.md for Claude / Codex</li><li>Free tier, open source</li></ul></div>
+<div class="offer">
+  <div class="pill"><b>Free</b> &amp; open source</div>
+  <div class="pill">Set up once, then <b>just chat</b></div>
+  <div class="pill repo">github.com/pradyut-das/personal-automation</div>
 </div>
 <script>
-  const cols = [...document.querySelectorAll('.flow .col')];
-  ['a1','a2','a3'].forEach((id, i) => {
+  const cols = [...document.querySelectorAll('.steps .col')];
+  ['a1','a2'].forEach((id, i) => {
     const r1 = cols[i].getBoundingClientRect(), r2 = cols[i + 1].getBoundingClientRect();
     const el = document.getElementById(id);
-    el.style.width = (r2.left - r1.right - 22) + 'px'; el.style.left = (r1.right + 6) + 'px';
+    el.style.width = (r2.left - r1.right - 34) + 'px'; el.style.left = (r1.right + 12) + 'px';
   });
 </script>
 </body></html>

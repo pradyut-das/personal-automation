@@ -1,6 +1,6 @@
 # Personal Automation
 
-**Run your Instagram, YouTube and LinkedIn by chatting with Claude or ChatGPT.**
+**Post everywhere by just asking.** Tell Claude or ChatGPT what to post, and it goes out on Instagram, YouTube and LinkedIn. Free and open source: set it up once, then just chat.
 
 > "Schedule these 5 reels, one at 10am and one at 6pm."
 > "If anyone comments AI, DM them the workflow PDF, but only if they follow me."
